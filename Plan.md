@@ -24,9 +24,9 @@
    
  - [ ] [Heap]
    
- - [x] [Tree]
-   - [x] [general tree]
-   - [x] [BST]
+ - [ ] [Tree]
+   - [ ] [general tree]
+   - [ ] [BST]
 
  - [ ] Searching
    - [ ] Binary search
