@@ -1,43 +1,56 @@
-// C++ program to sort an array using bucket sort
+// C++ program to sort a vector using bucket sort
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
-using namespace std;
 
-// Function to sort arr[] of size n using bucket sort
-void bucketSort(float arr[], int n)
+/**
+ * Function to sort a float array using bucket sort
+ * @param vec The vector to sort
+ */
+void bucketSort(std::vector<float>& vec)
 {
-    // 1) Create n empty buckets
-    vector<float> b[n];
+  const std::size_t size = vec.size();
+  std::vector<std::vector<float>> buckets(size);
 
-    // 2) Put array elements in different buckets
-    for (int i=0; i<n; i++)
+  // Move array elements to different buckets
+  for (const auto val : vec)
+  {
+    std::size_t bucket_index = static_cast<size_t>(size * val);
+    buckets.at(bucket_index).push_back(val);
+  }
+
+  // Sort the individual buckets
+  for (auto bucket : buckets)
+  {
+    std::sort(bucket.begin(), bucket.end());
+  }
+
+  // Set the sorted values in the original vector
+  std::size_t index = 0;
+  for (const auto& bucket : buckets)
+  {
+    for (const auto value : bucket)
     {
-       int bi = n*arr[i]; // Index in bucket
-       b[bi].push_back(arr[i]);
+      vec.at(index++) = value;
     }
-
-    // 3) Sort individual buckets
-    for (int i=0; i<n; i++)
-       sort(b[i].begin(), b[i].end());
-
-    // 4) Concatenate all buckets into arr[]
-    int index = 0;
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < b[i].size(); j++)
-          arr[index++] = b[i][j];
+  }
 }
 
-/* Driver program to test above funtion */
+/**
+ * Test program for the bucketSort function
+ */
 int main()
 {
-    float arr[] = {0.897, 0.565, 0.656, 0.1234, 0.665, 0.3434};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    bucketSort(arr, n);
+  std::vector<float> data = { 0.897, 0.565, 0.656, 0.1234, 0.665, 0.3434 };
 
-    cout << "Sorted array is \n";
-    for (int i=0; i<n; i++)
-       cout << arr[i] << " ";
-    return 0;
+  bucketSort(data);
+
+  std::cout << "Sorted vector is:\n";
+  for (auto value : data)
+  {
+    std::cout << value << ' ';
+  }
+
+  return 0;
 }
-
