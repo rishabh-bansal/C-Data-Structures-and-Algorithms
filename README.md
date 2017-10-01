@@ -26,6 +26,9 @@ Data Structures
 │   ├── MERGE_SORT.cpp                # merge sort
 │   ├── QUICK_SORT.cpp                # quick sort
 │   └── SELECTION_SORT.cpp            # selection sort
+├── Searching Programs
+│   ├── LINEAR_SEARCH.cpp               # Linear search
+│   ├── BINARY_SEARCH.cpp            # Binary search
 ├── Stack Programs
 │   └── Stack.cpp                # stack implementation
 └── Tree Programs
