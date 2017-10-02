@@ -1,7 +1,7 @@
 // A simple C program for traversal of a linked list
 #include<stdio.h>
 #include<stdlib.h>
- 
+#include <iostream>
 struct Node 
 {
   int data;
@@ -14,11 +14,26 @@ void printList(struct Node *n)
 {
   while (n != NULL)
   {
-     printf(" %d ", n->data);
+     printf("%d ", n->data);
      n = n->next;
   }
+  std::cout << "\n";
+  
 }
- 
+
+size_t length(struct Node* n)
+{
+    size_t length = 0;
+    struct Node * iterator = NULL;
+    iterator = n;
+
+    while(iterator)
+    {
+        ++length;
+        iterator = iterator->next;
+    }
+    return length;
+}
 int main()
 {
   struct Node* head = NULL;
@@ -38,8 +53,9 @@ int main()
   
   third->data = 3; //assign data to third node
   third->next = NULL;
-   
+  
   printList(head);
+  std::cout << length(head) << "\n";
   
   return 0;
 }
