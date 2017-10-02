@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-
+//take input for number of rows
 	int n;
 	cin >> n;
 
@@ -10,7 +10,8 @@ int main(){
 		for( int j = 0; j <= i; j++ ){  // Number of columns will be equal to one more than the row number (since rows are 0 indexed )
 			cout << "*";
 		}
-		cout << endl;
+//cursor will move to new line after complete iterations of column loop 
+		cout << endl; 
 	}
 
     return 0;
@@ -18,11 +19,13 @@ int main(){
 }
 
 /*
-5
+
+at n=5 Output :
 
 *
 **
 ***
 ****
 *****
+
 */
