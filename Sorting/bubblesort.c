@@ -13,11 +13,16 @@ int main(void)
 
 	for(i=0; i<n-1 ;i++)
 	{
+		/*
+		xchanges keeps track if any modification has been made in the following 
+		code section . If no swapping was there , it means that the array has 
+		already become sorted and we should break out . */
 		xchanges = 0;
 		for(j=0; j<n-1-i; j++)
 		{
 			if(arr[j] > arr[j+1])
 			{
+				//Swapping the elements
 				temp = arr[j];
 				arr[j] = arr[j+1];
 				arr[j+1] = temp;
