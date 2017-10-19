@@ -1,4 +1,9 @@
-    #include <stdio.h>
+/*program to print the following pattern-
+1
+23
+456
+------------------------------------------------------------------*/
+   #include <stdio.h>
   
     void main() {
     	int rw, c, no=1 ,len;
