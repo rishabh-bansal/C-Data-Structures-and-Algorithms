@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<conio.h>
+#include<stlib.h>
 int main()
 {
     int n1,n2;
