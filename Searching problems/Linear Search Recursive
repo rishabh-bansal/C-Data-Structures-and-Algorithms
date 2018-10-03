@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int linearsearch(int arr[],int left,int right,int element)
+{
+    if(left > right)
+    {
+        return -1;//element not found
+    }
+    if(arr[left] == element)
+    {
+            return left;//element found at the given index
+    }
+    linearsearch(arr,left+1,right,element);//increment the index by one from left side
+}
+int main()
+{
+     cout<<"Enter the size of array"<<endl;
+    int n ;
+    cin>>n;
+    int arr[100];
+    cout<<"Enter the elements of array"<<endl;
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    cout<<"Enter the element"<<endl;
+    int element;
+    cin>>element;
+    cout<<"The given element is at index "<<linearsearch(arr,0,n-1,element)<<endl;
+    return 0;
+}
