@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+#include <stdlib.h>
+#include <stack>
+//Using predefined stack library from STL
+stack <char> st;
+int main()
+{
+    string exp;
+    cout<<"Enter your expression in form of parenthesis"<<endl;
+    cin>>exp;
+    //traverse the expression using for loop
+    for(int i=0;i<exp.length();i++)
+    {
+        if(exp[i]=='(')
+            {
+                st.push(exp[i]); //push for open parenthesis
+            }
+        else if(exp[i]==')')
+        {
+            if(st.empty())
+            {
+                cout<<"Invalid expression"<<endl; //if stack is empty before pop then expression is invalid
+                exit(1);
+            }
+
+            st.pop(); //pop for closed parenthesis
+        }
+    }
+    //after traversing the whole expression the stack should be empty for balanced parenthesis condition
+    if(st.empty())
+    {
+        cout<<"Valid expression"<<endl;
+    }
+    else
+    {
+         cout<<"Invalid expression"<<endl;
+    }
+    return 0;
+}
