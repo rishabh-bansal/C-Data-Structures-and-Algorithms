@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+#include <algorithm>// include this header file to use inbuilt search or sort
+#include <vector>//vector are dynamic array , dynamic array are those arrays which can resize themselves
+#include <iterator>//Iterators are used to point at the memory addresses of STL containers
+vector <int> v;//vector of int type means dynamic array of int type
+int main()
+{
+
+    int n;
+    int element;
+    cout<<"Enter the size of array"<<endl;
+    cin>>n;
+    cout<<"Enter the elements of array"<<endl;
+    for(int i=0;i<n;i++)
+    {
+        int tmp;
+        cin>>tmp;
+        v.push_back(tmp);
+    }
+    cout<<"Enter the element you want to search for"<<endl;
+    cin>>element;
+    vector <int>::iterator it = find(v.begin(),v.end(),element);
+    if(it!=v.end())
+    {
+        cout<<"Element found at index "<<distance(v.begin(),it)<<endl;
+    }
+    else
+    {
+        cout<<"Element not found"<<endl;
+    }
+    return 0;
+}
