@@ -92,9 +92,8 @@ int main()
 	//Calculating the size(number of elements) of the array
 	int size = sizeof(Arr) / sizeof(Arr[0]);
 	
-	//Printing the original array
 	cout<<"Original Array: ";
-	printArray(Arr, size); 
+	printArray(Arr, size); //prints the original array
 
 	//Calling Merge Sort on the complete array(0 .. size-1)
 	mergeSort(Arr, 0, size - 1);
