@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+#define MOD 1e9+7
+using namespace std;
+#define  pp push_back
+#define  po pop_back
+#define  mp make_pair
+#define clr(a) memset(a,0,sizeof(a))
+#define neg(a) memset(a,-1,sizeof(a))
+#define fas(a) memset(a,false,sizeof(a))
+#define debug(x) cout<<#x<<": "<<x<<endl
+#define debug1(x) cout<<#x<<": "<<x<<" "
+#define rev(x) reverse(x.begin(), x.end())
+#define int long long 
+#define F first
+#define S second
+ 
+using namespace std;
+ 
+vector<int> dijkstra(vector<pair<int,int> >v[],int source,int n)
+{
+     
+     vector<int> dist(n,INT_MAX);dist[source]=0;
+     set<pair<int,int>> s;
+     s.insert(mp(0,source));
+     vector<bool> visited(n,false);
+     while(!s.empty())
+     {
+       pair<int,int> p=*s.begin();s.erase(s.begin());
+       if(!visited[p.S])
+       {
+          visited[p.S]=true;
+          dist[p.S]=p.F;
+          int x=p.S;
+          for(auto it:v[p.S])
+          {
+              int y=it.F;
+              int w=it.S;
+              if(dist[y]==INT_MAX||dist[y]>dist[x]+w)
+              { 
+                   dist[y]=dist[x]+w;
+                   s.insert(mp(dist[y],y));
+              }
+          }
+       }
+     
+     }
+ 
+     return dist;
+ 
+}
+ 
+int32_t main() {
+    int n,m;cin>>n>>m;
+    vector<pair<int,int> >v[n];
+    for(int i=0;i<m;i++)
+    {
+        int x,y,z;cin>>x>>y>>z;x--;y--;
+        v[x].push_back(mp(y,z));
+       // v[y].push_back(mp(x,z));
+    }
+    
+    vector<int> d=dijkstra(v,0,n);
+    rev(d);d.pop_back();rev(d);
+    for(auto &it:d)if(it==INT_MAX)it=1e9;
+    for(auto &it:d)cout<<it<<" ";cout<<""<<endl;
+}
