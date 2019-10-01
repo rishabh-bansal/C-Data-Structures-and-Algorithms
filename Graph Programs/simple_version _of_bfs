@@ -1,0 +1,32 @@
+void  bfs(std::vector<long long int> v[],long long int n,long long int s)
+{
+  bool visited[n];
+  long long int level[n]={0};
+  long long int parent[n]={0};
+  parent[s]=s;
+  level[s]=0;
+  queue <long long int> q;
+  q.push(s);
+  visited[s]=true;
+  while(!q.empty())
+  {
+    long long int p=q.front();
+    q.pop();
+   
+    for (long long int i = 0; i < v[p].size(); ++i)
+    {
+
+      if(!visited[v[p][i]])
+      {
+         q.push(v[p][i]);
+        visited[v[p][i]]=true;
+        level[v[p][i]]=level[p]+1;
+        parent[v[p][i]]=p;
+      }
+        
+    }
+   }
+  
+  return;
+
+}
