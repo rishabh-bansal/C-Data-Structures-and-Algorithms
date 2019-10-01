@@ -1,0 +1,17 @@
+void dfs(std::vector< int> v[],int s,bool visited[])
+{
+	visited[s]=true;
+  for (int i = 0; i < v[s].size(); ++i)
+  {
+  	if(!visited[v[s][i]] )
+  	{ 
+  		visited[v[s][i]]=true;  
+  		dfs(v,v[s][i],visited);
+
+  	}
+
+  }
+
+
+}
+
