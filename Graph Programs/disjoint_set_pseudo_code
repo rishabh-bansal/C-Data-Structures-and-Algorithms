@@ -1,0 +1,42 @@
+
+int  root(int  a[],int  r)
+{
+ while(a[r]!=r)
+   {
+         r=a[r];
+   } 
+ return r;
+}
+
+int root(int a[],int r)
+{
+     if(a[r]==r)
+     {
+       return r;
+     }
+     else
+     {
+       int x=root(a,a[r]);
+       a[r]=x;
+       return x;
+     }
+
+} 
+ 
+void unio(int  a[],int  size[],int  x,int  y){
+  x=root(a,x);
+  y=root(a,y);
+  if(x==y){return;}
+  if(size[x]>=size[y])
+  {
+       a[y]=x;
+       size[x]+=size[y];
+  }
+  else
+  {
+      a[x]=y;
+      size[y]+=size[x];
+  }
+ 
+}
+ 
