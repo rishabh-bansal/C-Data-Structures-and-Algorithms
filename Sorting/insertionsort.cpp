@@ -2,8 +2,11 @@
 using namespace std;
 
 void insertionSort(int a[],int n){
-    for(int i=1;i<n;i++){
+    for(int i=1;i<n;i++){   /* Move elements of arr[0..i-1], that are  
+                                greater than key, to one position ahead  
+                                 of their current position */    
         for(int j=i;j>=1;j--){
+            
             if (a[j]<a[j-1]){
                 int temp=a[j];
                 a[j]=a[j-1];
@@ -17,8 +20,10 @@ void insertionSort(int a[],int n){
 
 int main(){
     int a[5]={4,3,2,1,0};
+    
     insertionSort(a,5); //insertionSort(array,size)
-    for(int i=0;i<5;i++){
+                            
+    for(int i=0;i<5;i++){       // A utility function to print an array of size n 
         cout<<a[i]<<"\n";
     }
     return 0;}
