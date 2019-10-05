@@ -2,6 +2,7 @@
 using namespace std;
 int main()
 {
+    
     for(int i=5;i>=1;i--) //loop for changing line and giving path for printing pattern format
     {
         for(int j=1;j<=i;j++)//loop for printing format upper part
@@ -18,4 +19,21 @@ int main()
         }
         cout<<endl;
     }
+    return 0;
 }
+
+/*
+   Output:
+   
+*****
+****
+***
+**
+*
+*
+**
+***
+****
+*****
+*/
+
