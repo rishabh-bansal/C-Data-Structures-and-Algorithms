@@ -6,6 +6,7 @@ void swap(int* a, int* b)
     *a = *b;
     *b = t;
 }
+// function to arrange the elements according to the pivot(smaller elements at its left while greater elements at its right)
 int partition (int arr[], int low, int high)
 {
     int pivot = arr[high];    // pivot
@@ -23,7 +24,7 @@ int partition (int arr[], int low, int high)
     swap(&arr[i + 1], &arr[high]);
     return (i + 1);
 }
-
+//quick sort function to partition the array using the pivot into two parts.
 void quickSort(int arr[], int low, int high)
 {
     if (low < high)
@@ -34,7 +35,7 @@ void quickSort(int arr[], int low, int high)
         quickSort(arr, pi + 1, high);
     }
 }
- 
+// function to print the array of given size 
 void printArray(int arr[], int size)
 {
     int i;
@@ -42,6 +43,7 @@ void printArray(int arr[], int size)
         printf("%d ", arr[i]);
     printf("\n");
 }
+// main driver function
 int main()
 {
     int arr[] = {10, 7, 8, 9, 1, 5};
