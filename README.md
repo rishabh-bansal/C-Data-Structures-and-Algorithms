@@ -34,5 +34,6 @@ Data Structures
 └── Tree Programs
     ├── TREE.cpp                  # general tree implementation
     ├── SEGMENT_TREE.cpp         # segment tree implementation
-    └── BINARY_SEARCH_TREE.cpp                 # binary search tree
+    ├── BINARY_SEARCH_TREE.cpp                 # binary search tree
+    └── AVL_TREE.cpp                 # avl tree (optimized binary search tree)
 ```
