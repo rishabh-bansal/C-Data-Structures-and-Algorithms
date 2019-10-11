@@ -25,6 +25,7 @@ int main()
     for(i=0; i<(limit); i++)
     {
         position=i;
+        // finding the minimum element in [i+1,limit] and swapping with arr[i]
         for(j=i+1; j<limit; j++)
         {
             if(arr[position]>arr[j])
@@ -39,7 +40,7 @@ int main()
             }
         }
     }
- 
+    // printing the sorted array 
     printf("Array elements in Ascending Order:\n");
     for(i=0; i<limit; i++)
         printf("%d ",arr[i]);
@@ -50,6 +51,7 @@ int main()
     for(i=0; i<(limit); i++)
     {
         position=i;
+        // finding the maximum element in [i+1,limit] and swapping it with arr[i]
         for(j=i+1; j<limit; j++)
         {
             if(arr[position]<arr[j])
@@ -64,7 +66,8 @@ int main()
             }
         }
     }
- 
+    
+    // printing the sorted array
     printf("Array elements in Descending Order:\n");
     for(i=0; i<limit; i++)
         printf("%d ",arr[i]);
