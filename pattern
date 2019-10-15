@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+int main() {
+    int n;
+    cin>>n;
+	for(int i=1; i<=n/2+1; i++)
+	{
+        if(i==1||i==n)
+        {
+            //only 1 loop reqd in this case
+            for(int j=1; j<=n; j++)
+            {
+                cout<<"* ";
+            }
+
+        }
+        if(i>1 && i<n/2 +1)
+        {
+            //there will be 3 loops here one for left side one for space and another for right side
+            for(int j=n/2-i+2; j>0; j--)
+            {
+                cout<<"* ";
+            }
+            for(int j=2*i-3; j>0; j--)
+            {
+                cout<<"# ";
+            }
+            for(int j=1; j<=n/2-i+2; j++)
+            {
+                cout<<"* ";
+            }
+            cout<<endl;
+
+
+        }
+        /*else
+        {
+            //3loops
+        }*/
+		
+	}
+	return 0;
+}
