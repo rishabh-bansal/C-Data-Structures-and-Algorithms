@@ -14,12 +14,11 @@
 */
 
 #include<stdio.h>   //header file for input and output
-#inclusde<conio.h>  //header file for direct run
+#include<conio.h>  //header file for direct run
 int main()   //main function execute from here
 {
 
     int i,j,l; //decelerations of the variables
-    clrscr();    //for clearing the screen
     scanf("%d",&l);   //input from user
     for(i=1;i<=l;i++)  //loop for upper triangle
     {
