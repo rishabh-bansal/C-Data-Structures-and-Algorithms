@@ -1,12 +1,11 @@
-
 <div align="center" style="margin: 20px">
   <img src="https://github.com/rishabh-bansal/Data-Structures/raw/master/image.jpg">
 </div>
 
-
 # Data-Structures
 
 ### Implementation tree
+
 ```
 Data Structures
 ├── Graph Programs
@@ -16,7 +15,7 @@ Data Structures
 ├── Heap Programs
 │   └── HEAP.cpp                 # heap implementation
 ├── Linked List Programs
-│   ├── DOUBLY_LINKED_LIST.cpp                  # doubly linked list 
+│   ├── DOUBLY_LINKED_LIST.cpp                  # doubly linked list
 │   └── SINGLY_LINKED_LIST.cpp                   # singly linked list
 ├── Queue Programs
 │   └── QUEUE.cpp                # queue implementation
@@ -29,6 +28,9 @@ Data Structures
 ├── Searching Programs
 │   ├── LINEAR_SEARCH.cpp               # Linear search
 │   ├── BINARY_SEARCH.cpp            # Binary search
+│   ├── Ternary_Search.cpp            # Ternary search
+│   ├── Brute_Force.cpp            # Brute force
+│   ├── Rabin_Karp.cpp            # Rabin Karp
 ├── Stack Programs
 │   └── Stack.cpp                # stack implementation
 └── Tree Programs
