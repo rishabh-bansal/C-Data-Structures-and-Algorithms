@@ -7,10 +7,10 @@ int main()					// main function starts here(begining)
  	for(int j=1;j<=9;j++)   // this loop is used to print columns
 	 { 
 	 if(j>=i&&j<=10-i)		 //condition to print *
- 		printf("*");
+ 		printf("*");                  Prints the value of *
 	else
  		printf(" ");			// if the above condition doesn't satisfies it prints space
-     }	
+     }	                                      Prints the space
  printf("\n");					/* Used ,Once all the numbers of a row a printed,
 		 							 print a newline before starting the next row.
 		 									*/
