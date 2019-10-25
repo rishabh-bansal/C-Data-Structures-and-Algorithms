@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+#define N 8
+#define INF 9999999
+int Flow[N][N];
+int visited[N];
+int graph[N][N] = { {0, 2, 0, 0, 0, 0, 0, 4},
+                    {0, 0, 0, 2, 0, 0, 0, 3},
+                    {0, 0, 0, 4, 3, 0, 0, 0},
+                    {5, 0, 0, 0, 0, 0, 0, 0},
+                    {0, 0, 0, 0, 0, 4, 0, 0},
+                    {0, 0, 0, 2, 0, 0, 0, 3},
+					{3, 0, 5, 0, 2, 0, 0, 0},
+					{0, 0, 0, 0, 0, 0, 0, 0} };
+int dfs(int s, int t, int minimum) {
+    visited[s] = 1;
+    if (s == t)
+        return minimum;
+    for (int i = 0; i < N; i++) {
+        int flow_capacity = graph[s][i] - Flow[s][i];
+        if (!visited[i] && flow_capacity > 0) {
+            if (int sent = dfs (i, t, min (minimum, flow_capacity))) {
+                Flow[s][i] += sent;
+                Flow[i][s] -= sent;
+                return sent;
+            }
+        }
+    }
+    return 0;
+}
+int main() {
+    memset(Flow, 0, sizeof(Flow));
+    memset(visited, 0, sizeof(visited));
+    int s = 6;
+    int t = 7;
+    int max_flow = 0;
+    while (int sent = dfs(s, t, INF)) {
+        max_flow += sent;
+        memset(visited, 0, sizeof(visited));
+    }
+    cout << "The max flow from source to sink is " << max_flow;
+    cout << endl;
+}
