@@ -1,0 +1,165 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+struct node
+{
+    int data;
+    struct node *next;
+    struct node *prev;
+};
+struct node*inscdlllast(struct node *head);
+struct node*delcdllfirst(struct node *head);
+struct node*inscdllfirst(struct node *head);
+struct node*delcdlllast(struct node *head);
+struct node*display(struct node *head);
+int main()
+{
+    int n;
+    struct node *head=NULL;
+    while(1)
+    {
+        cout<<"1.insert at end\n";
+        cout<<"2.insert at begin\n";
+        cout<<"3.display\n";
+        cout<<"4.delete first node\n";
+        cout<<"5.delete last node\n";
+        cout<<"enter your choice\n";
+        cin>>n;
+        switch(n)
+        {
+        case 2:
+            head=inscdllfirst(head);
+            break;
+        case 1:
+            head=inscdlllast(head);
+            break;
+        case 4:
+            head=delcdllfirst(head);
+            break;
+        case 5:
+            head=delcdlllast(head);
+            break;
+        case 3:
+            head=display(head);
+            break;
+        }
+    }
+}
+struct node*inscdlllast(struct node *head)
+{
+    struct node *p;
+    p=(struct node *)malloc(sizeof(struct node));
+    cout<<"enter node data\n";
+    cin>>p->data;
+    p->next=NULL;
+    p->prev=NULL;
+    if(head==NULL)
+    {
+        head=p;
+        p->next=head;
+    }
+    else
+    {
+        struct node *q;
+        q=head;
+        while(q->next!=head)
+        {
+            q=q->next;
+        }
+        q->next=p;
+        p->prev=q;
+        p->next=head;
+        head->prev=p;
+    }
+    return head;
+};
+struct node*inscdllfirst(struct node *head)
+{
+    struct node *p;
+    p=(struct node *)malloc(sizeof(struct node));
+    cout<<"enter node data\n";
+    cin>>p->data;
+    p->prev=NULL;
+    p->next=NULL;
+    if(==NULL)
+    {
+        head=p;
+        p->next=head;
+    }
+    else
+    {
+        struct node *q;
+        q=head;
+        while(q->next!=head)
+        {
+            q=q->next;
+        }
+        p->next=head;
+        head->prev=p;
+        head=p;
+        p->prev=q;
+        q->next=p;
+    }
+    return head;
+};
+struct node*delcdlllast(struct node *head)
+{
+    struct node *q;
+    q=head;
+    if(q==NULL)
+    {
+        cout<<"linked list is empty\n";
+    }
+    else
+    {
+        struct node *p;
+        while(q->next!=head)
+        {
+            q=q->next;
+        }
+        p=q->prev;
+        p->next=head;
+        head->prev=p;
+        q->prev=NULL;
+        q->next=NULL;
+
+    }
+    return head;
+};
+struct node*delcdllfirst(struct node *head)
+{
+    struct node *p,*q;
+    p=head;
+    q=head;
+    while(q->next!=head)
+    {
+        q=q->next;
+    }
+    head=head->next;
+    head->prev=q;
+    q->next=head;
+    p->prev=NULL;
+    p->next=NULL;
+    free(p);
+    return head;
+
+};
+struct node*display(struct node *head)
+{
+    struct node *p;
+    p=head;
+    if(p==NULL)
+    {
+        cout<<"linked list is empty\n";
+    }
+    else
+    {
+        while(p->next!=head)
+        {
+            cout<<p->data<<endl;
+            p=p->next;
+        }
+        cout<<p->data<<endl;
+    }
+    return head;
+};
