@@ -1,0 +1,99 @@
+#include<iostream>
+#define CAPACITY 10
+using namespace std;
+int arr[CAPACITY];
+int front=-1;
+int rear=-1;
+void deleted();
+void inserted();
+void display();
+int main()
+{
+    int n;
+    while(1)
+    {
+        cout<<"1.insert\n";
+        cout<<"2.delete\n";
+        cout<<"3.display\n";
+        cin>>n;
+        switch(n)
+        {
+        case 1:
+            inserted();
+            break;
+        case 2:
+            deleted();
+            break;
+        case 3:
+            display();
+            break;
+        }
+    }
+
+}
+void inserted()
+{
+    int ele;
+       cout<<"enter element to insert\n";
+    cin>>ele;
+    if((front==0 && rear==CAPACITY-1) || front==rear+1)
+    {
+        cout<<"queue is full\n";
+    }
+
+    else if(front==-1 &&rear==-1)
+    {
+        rear++;
+        front++;
+        arr[rear]=ele;
+    }
+    else if(front==0)
+    {
+        rear++;
+        arr[rear]=ele;
+    }
+    else if(front!=0 && rear==CAPACITY-1)
+    {
+        rear=0;
+        arr[rear]=ele;
+    }
+    else if(front!=0 && rear!=CAPACITY-1)
+    {
+        rear++;
+        arr[rear]=ele;
+    }
+}
+void display()
+{
+    int i;
+    if((front==-1 &&rear==-1) || front==rear+1)
+    {
+        cout<<"queue is empty\n";
+    }
+    else
+    {
+    for(i=front;i<=rear;i++)
+    {
+        cout<<arr[i]<<endl;
+    }
+    }
+}
+void deleted()
+{
+    if(front==-1 &&rear==-1 || (front==rear+1 && front!=0))
+    {
+        cout<<"queue is empty\n";
+    }
+    else
+    {
+        int ele;
+        ele=arr[front];
+        front++;
+        cout<<"element which is deleted is\n"<<ele<<endl;
+        if(front==rear+1)
+        {
+            front=-1;
+            rear=-1;
+        }
+    }
+}
