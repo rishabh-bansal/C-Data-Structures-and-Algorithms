@@ -1,0 +1,70 @@
+#include<iostream>
+using namespace std;
+struct edge
+{
+    int source;
+    int dest;
+};
+int find(int s,int parent[]);
+void union1(int s,int t,int parent[]);
+int main()
+{
+    int v;
+    cout<<"enter number of vertices\n";
+    cin>>v;
+    int e,i,j;
+    cout<<"enter number of edges\n";
+    cin>>e;
+    edge arr[e];
+    cout<<"enter edges\n";
+    for(i=0;i<e;i++)
+    {
+        cout<<"enter source vertex\n";
+        cin>>arr[i].source;
+        cout<<"enter dest vertex\n";
+        cin>>arr[i].dest;
+    }
+    int parent[v];
+    for(i=0;i<v;i++)
+    {
+        parent[i]=i;
+    }
+    int q=0;
+    for(i=0;i<e;i++)
+    {
+        int p1=find(arr[i].source,parent);
+        int p2=find(arr[i].dest,parent);
+        if(p1==p2)
+        {
+            q=1;
+            cout<<"cycle detected\n";
+            cout<<" at "<<p1<<endl;
+            break;
+        }
+        else
+        {
+           union1(p1,p2,parent);
+        }
+    }
+    if(q==0)
+    {
+        cout<<"no cycle detected\n";
+    }
+    cout<<"parents are\n";
+    for(i=0;i<v;i++)
+    {
+        cout<<parent[i]<<endl;
+    }
+}
+int find(int s,int parent[])
+{
+    if(parent[s]==s)
+    {
+        return s;
+    }
+    find(parent[s],parent);
+}
+void union1(int s,int t,int parent[])
+{
+    parent[s]=t;
+}
