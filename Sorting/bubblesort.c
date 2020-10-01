@@ -1,10 +1,10 @@
 #include<stdio.h>
-#define MAX 100
 int main(void)
 {
-	int arr[MAX],i,j,temp,n,xchanges;
+	int i,j,temp,n,xchanges;
 	printf("Enter the number of elements : ");
 	scanf("%d",&n);
+	int arr[n];
 	for(i=0; i<n; i++)
 	{
 		printf("Enter element %d : ",i+1);
