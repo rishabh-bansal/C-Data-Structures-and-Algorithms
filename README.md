@@ -1,8 +1,14 @@
-
 <div align="center" style="margin: 20px">
   <img src="https://github.com/rishabh-bansal/Data-Structures/raw/master/image.jpg">
 </div>
 
+This repository contains data structures and algorithms written in C and C++.
+
+# Use cases
+Users can look through the repository and learn about the implementation of each data structure and algorithm. They can also be used in programs.
+
+# Installation
+Simply downloading the repository and adding the corresponding data structure or algorithm files to the preprocessor (#include "<yourFile.cpp>") of the C++ file that is using it.
 
 # Data-Structures
 
@@ -36,3 +42,6 @@ Data Structures
     ├── SEGMENT_TREE.cpp         # segment tree implementation
     └── BINARY_SEARCH_TREE.cpp                 # binary search tree
 ```
+
+# Contributions 
+Anyone is welcome to contribute to the repository, and [here](https://github.com/rishabh-bansal/C-Data-Structures-and-Algorithms/blob/master/Plan.md "Plan.md") is a list of data structures and algorithms that are planned to be added.
